@@ -28,17 +28,16 @@
 - hosts: webservers
   remote_user: ubuntu
   tasks:
-  # - name: clone repo
-  #   git:
-  #     repo: 'https://github.com/{{ github_user }}/{{ app_name }}.git'
-  #     dest: /home/{{ ansible_ssh_user }}/{{ app_name }}
-  #     update: yes  # Does a git pull if the repo already exists
-  #     force: yes
-  - name: copy app folder
-    synchronize:
-      mode: push
+  - name: clone repo
+    git:
+      repo: 'https://github.com/{{ github_user }}/{{ app_name }}.git'
       dest: /home/{{ ansible_ssh_user }}/{{ app_name }}
-      src: ./
+      update: yes  # Does a git pull if the repo already exists
+  # - name: copy app folder
+  #   synchronize:
+  #     mode: push
+  #     dest: /home/{{ ansible_ssh_user }}/{{ app_name }}
+  #     src: ./
   - name: creating directory
     file:
       state: directory

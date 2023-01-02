@@ -1,11 +1,9 @@
 [webservers]
 # Add hosts here
-35.88.35.132
-ec2-35-88-35-132.us-west-2.compute.amazonaws.com
 
 [webservers:vars]
 # Local variables for Ansible playbooks
 ansible_ssh_private_key_file=./aws-ec2.pem
 ansible_ssh_user=ubuntu
-github_user=brennv
-app_name=flask-ansible-example
+github_user=D-Rex-III
+app_name=flask-ansible-task

@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 User={{ ansible_ssh_user }}
-Group=ubuntu
+Group=www-data
 WorkingDirectory=/home/{{ ansible_ssh_user }}/{{ app_name }}
 Environment="PATH=/home/{{ ansible_ssh_user }}/{{ app_name }}/env/bin"
 ExecStart=/home/{{ ansible_ssh_user }}/{{ app_name }}/env/bin/gunicorn --workers 3 --bind unix:{{ app_name }}.sock -m 007 wsgi:app
