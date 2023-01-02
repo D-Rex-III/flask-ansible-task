@@ -1,5 +1,6 @@
 [webservers]
 # Add hosts here
+44.226.207.152
 
 [webservers:vars]
 # Local variables for Ansible playbooks
