@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import sqlite3
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 
@@ -204,8 +204,8 @@ def api_delete_user(user_id):
     return jsonify(delete_user(user_id))
 
 @app.route("/")
-def main():
-    return render_template("index.html")
+def hello():
+    return 'hello'
 
 @app.route("/health")
 def health():
