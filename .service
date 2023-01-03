@@ -7,7 +7,7 @@ User={{ ansible_ssh_user }}
 Group=www-data
 WorkingDirectory=/home/{{ ansible_ssh_user }}/{{ app_name }}
 Environment="PATH=/home/{{ ansible_ssh_user }}/{{ app_name }}/env/bin:/usr/bin"
-ExecStart=/bin/bash -c 'source /home/{{ ansible_ssh_user }}/{{ app_name }}/env/bin/activate; gunicorn --workers 3 --bind unix:{{ app_name }}/ipc.sock wsgi:app'
+ExecStart=/bin/bash -c 'source /home/{{ ansible_ssh_user }}/{{ app_name }}/env/bin/activate; gunicorn --workers 3 --bind unix:{{ app_name }}.sock wsgi:app'
 Restart=always
 
 [Install]

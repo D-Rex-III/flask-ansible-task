@@ -77,6 +77,8 @@
       dest: /etc/nginx/sites-enabled/default
       state: link
       force: yes
+  - name: change user for nginx.conf
+    raw: sed -i 's/www-data/ubuntu/' nginx.conf
   - name: restart nginx
     systemd: name=nginx state=restarted enabled=yes
   - name: open firewall for nginx
