@@ -9,8 +9,6 @@
   tasks:
   - name: update cache
     apt: name=python3-software-properties state=present update_cache=yes cache_valid_time=43200
-  # - name: disable lighttpd
-  #   systemd: name=lighttpd state=stopped enabled=no
   - name: install packages
     apt: name={{item}} state=present
     with_items:
@@ -60,7 +58,6 @@
       dest: /etc/nginx/sites-available/{{ app_name }}
   - name: remove default nginx site config
     file: path=/etc/nginx/sites-enabled/default state=absent
-  # - command: mv /etc/nginx/sites-enabled/default /tmp/nginx.sites-enabled.default
   - name: enable nginx site
     file:
       src: /etc/nginx/sites-available/{{ app_name }}
