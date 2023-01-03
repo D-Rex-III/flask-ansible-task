@@ -1,5 +1,6 @@
 [webservers]
 # Add hosts here
+35.93.35.180
 
 [webservers:vars]
 # Local variables for Ansible playbooks

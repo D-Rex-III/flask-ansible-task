@@ -33,16 +33,6 @@
       repo: 'https://github.com/{{ github_user }}/{{ app_name }}.git'
       dest: /home/{{ ansible_ssh_user }}/{{ app_name }}
       update: yes  # Does a git pull if the repo already exists
-  # - name: copy app folder
-  #   synchronize:
-  #     mode: push
-  #     dest: /home/{{ ansible_ssh_user }}/{{ app_name }}
-  #     src: ./
-  - name: creating directory
-    file:
-      state: directory
-      path: /tmp/{{ app_name }}
-      mode: 0750
   - name: install modules in a virtualenv
     pip:
       requirements: /home/{{ ansible_ssh_user }}/{{ app_name }}/requirements.txt
@@ -78,7 +68,7 @@
       state: link
       force: yes
   - name: change user for nginx.conf
-    raw: sed -i 's/www-data/ubuntu/' nginx.conf
+    raw: sed -i 's/www-data/ubuntu/' /etc/nginx/nginx.conf
   - name: restart nginx
     systemd: name=nginx state=restarted enabled=yes
   - name: open firewall for nginx
