@@ -79,7 +79,7 @@
   tasks:
   - name: get url
     get_url:
-      url: http://{{inventory_hostname}}
+      url: http://127.0.0.1
       dest: /tmp/index.html
   - name: read html
     shell: cat /tmp/index.html

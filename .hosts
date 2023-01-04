@@ -1,5 +1,6 @@
 [webservers]
 # Add hosts here
+node1 ansible_host=<public_ip_address> ansible_port=<default_is_22> ansible_user=<instance_user_default_ubuntu>
 
 [webservers:vars]
 # Local variables for Ansible playbooks
