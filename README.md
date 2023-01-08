@@ -3,23 +3,23 @@ This is an example Flask app to be deployed with an Ansible playbook.
 
 The included deploy playbook will:
 
-Install system apt packages:
+- Install system apt packages:
     - python3-pip
     - python3-dev
     - python3
     - nginx
     - gunicorn
     - virtualenv
-Clone the repo:
-    https://github.com/D-Rex-III/flask-ansible-task.git
-Install Python requirements in a virtualenv:
-    Installs requirements.txt in the app env.
-Configure gunicorn, nginx, ufw and systemd:
-    Ansible-Playbook will copy, template replace variables, and set up .service and .nginx.
-Enable and start services:
-    This step will set up our new service and nginx server.
-Check the `/tmp/index.html` url for expected response:
-    Finally it will check the app created index.html for a response.
+- Clone the repo:
+    - https://github.com/D-Rex-III/flask-ansible-task.git
+- Install Python requirements in a virtualenv:
+    - Installs requirements.txt in the app env.
+- Configure gunicorn, nginx, ufw and systemd:
+    - Ansible-Playbook will copy, template replace variables, and set up .service and .nginx.
+- Enable and start services:
+    - This step will set up our new service and nginx server.
+- Check the `/tmp/index.html` url for expected response:
+    - Finally it will check the app created index.html for a response.
 
 ## Prerequisites
 You'll need [Ansible installed](https://docs.ansible.com/ansible/latest/intro_installation.html) and SSH access to any hosts. In this example I previously set up an AWS EC2 instance with a .pem file and used the public ip to customize the `.hosts` file as needed.
