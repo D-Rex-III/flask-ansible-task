@@ -2,7 +2,7 @@
 import sqlite3
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-
+import os
 
 def connect_to_db():
     conn = sqlite3.connect('database.db')
@@ -134,35 +134,32 @@ def delete_user(user_id):
 
 users = []
 user0 = {
-    "name": "Charles Effiong",
-    "email": "charles@gamil.com",
+    "name": "Victor Doom",
+    "email": "victordoom@example.com",
     "phone": "067765665656",
-    "address": "Lui Str, Innsbruck",
-    "country": "Austria"
+    "address": "44 Doom Str, Teluner",
+    "country": "Latveria"
 }
-
 user1 = {
-    "name": "Sam Adebanjo",
-    "email": "samadebanjo@gamil.com",
+    "name": "Kyle Rayner",
+    "email": "kylerayner@example.com",
     "phone": "098765465",
-    "address": "Sam Str, Vienna",
-    "country": "Austria"
+    "address": "Sam Str, Batjo",
+    "country": "Bialya"
 }
-
 user2 = {
-    "name": "John Doe",
-    "email": "johndoe@gamil.com",
+    "name": "Barbara Gordon",
+    "email": "barbaragordon@example.com",
     "phone": "067765665656",
-    "address": "John Str, Linz",
-    "country": "Austria"
+    "address": "John Str, Larista",
+    "country": "Corto Maltese"
 }
-
 user3 = {
-    "name": "Mary James",
-    "email": "maryjames@gamil.com",
+    "name": "Nathaniel Adam",
+    "email": "nathanieladam@example.com",
     "phone": "09878766676",
-    "address": "AYZ Str, New york",
-    "country": "United states"
+    "address": "AYZ Str, Yorstoke",
+    "country": "Markovia"
 }
 
 users.append(user0)
@@ -212,4 +209,5 @@ def health():
     return jsonify({'status': 'ok'})
 
 if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0')
